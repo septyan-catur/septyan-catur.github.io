@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Web Developer</title>
+    <link rel="stylesheet" href="style.css?v=7">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h1 class="logo">Portofolio</h1>
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#proyek">Proyek</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="beranda" class="hero animate-on-scroll">
+        <div class="hero-container">
+
+            <div class="hero-image">
+                <img src="images/foto_gue.jpg" alt="Foto Profil Saya">
+            </div>
+
+            <div class="hero-content">
+                <h2>Halo, Saya Seorang Web Developer</h2>
+                <p>Saya berfokus pada pembangunan website yang fungsional, mulai dari desain antarmuka hingga sistem database di balik layarnya. Berikut adalah proyek yang pernah saya kerjakan.</p>
+                <a href="CV-Junior-Programmer-Septyan-Catur-Pamungkas.pdf" download class="btn">Download CV</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="proyek" class="portfolio-section animate-on-scroll">
+        <h2 class="section-title">Projek Yang Pernah Dikerjakan.</h2>
+
+        <div class="project-row animate-on-scroll">
+            <div class="project-image" style="background-color: #1a2942;">
+                <img src="images/beranda_user.png" alt="Tampilan Beranda User">
+            </div>
+            <div class="project-info">
+                <h3>Antarmuka Pengguna (Frontend)</h3>
+                <p>Membangun antarmuka website yang responsif dan ramah pengguna (user-friendly). Fokus pada tata letak yang bersih agar informasi dan fitur dapat diakses dengan mudah dari berbagai ukuran perangkat.</p>
+                <a href="https://spd-demo.free.nf" target="_blank" class="btn">Kunjungi Website</a>
+            </div>
+        </div>
+
+        <div class="project-row reverse animate-on-scroll">
+            <div class="project-image" style="background-color: #1a2942;">
+                <img src="images/admin_backend.png" alt="Tampilan Backend">
+            </div>
+            <div class="project-info">
+                <h3>Sistem Backend & Database</h3>
+                <p>Merancang arsitektur database MySQL dan membangun logika backend menggunakan PHP murni (Native). Proyek ini telah berhasil saya deploy secara mandiri menggunakan layanan InfinityFree agar dapat diuji coba secara online.</p>
+                <a href="https://spd-demo.free.nf" target="_blank"></a>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="kontak" class="contact-section animate-on-scroll">
+        <h2 class="section-title">Hubungi Saya</h2>
+        <p>Saya selalu terbuka untuk diskusi dan peluang kerja sama yang baru. Mari terhubung!</p>
+
+        <div class="contact-links">
+            <a href="https://wa.me/6281285427749" target="_blank" class="btn btn-whatsapp">Chat WhatsApp</a>
+            <a href="mailto:caturseptyan09@gmail.com" class="btn">Kirim Email</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Portofolio Saya.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Ambil semua elemen yang memiliki class 'animate-on-scroll'
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+            // 2. Fungsi untuk mengecek apakah elemen sudah masuk ke area layar
+            function checkIfInView() {
+                animatedElements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+
+                    // Jika bagian atas elemen sudah terlihat di layar (window height)
+                    if (rect.top < window.innerHeight - 50) {
+                        // Tambahkan class 'appeared' untuk memicu animasi CSS
+                        element.classList.add('appeared');
+                    }
+                });
+            }
+
+            // 3. Jalankan fungsi saat pertama kali halaman dimuat (untuk elemen di atas)
+            checkIfInView();
+
+            // 4. Jalankan fungsi setiap kali pengguna melakukan scroll
+            window.addEventListener('scroll', checkIfInView);
+        });
+    </script>
+</body>
+
+</html>
+</body>
+
+</html>
