@@ -29,24 +29,24 @@ body {
     width: 100%;
 }
 
-/* --- BACKGROUND ORBS (EFEK BLUR BERSINAR) --- */
+/* --- BACKGROUND ORBS (EFEK BLUR HALUS & ELEGAN) --- */
 body::before,
 body::after {
     content: "";
     position: fixed; 
     border-radius: 50%;
-    filter: blur(120px); 
+    filter: blur(180px); /* Blur diperbesar kembali agar menyebar halus */
     z-index: -1; 
     pointer-events: none; 
-    opacity: 0.45; 
+    opacity: 0.15; /* Transparansi diturunkan drastis kembali ke versi elegan */
 }
 
 /* Orb Kiri Atas (Warna Biru Terang) */
 body::before {
     width: 600px;
     height: 600px;
-    top: -200px;
-    left: -200px;
+    top: -100px;
+    left: -100px;
     background-color: #2563eb; 
 }
 
@@ -54,11 +54,10 @@ body::before {
 body::after {
     width: 700px;
     height: 700px;
-    bottom: -250px;
-    right: -200px;
+    bottom: -150px;
+    right: -150px;
     background-color: var(--accent-red); 
 }
-
 /* --- NAVIGASI --- */
 header {
     background-color: rgba(11, 19, 32, 0.85); 
