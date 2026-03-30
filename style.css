@@ -3,12 +3,12 @@
 
 /* Variabel Palet Warna Bersih & Elegan (Biru Gelap + Aksen Merah) */
 :root {
-    --bg-dark: #0b1320;       
-    --bg-card: #16243b;       
-    --text-main: #e2e8f0;     
-    --text-muted: #94a3b8;    
-    --accent-red: #c1121f;    
-    --accent-hover: #780000;  
+    --bg-dark: #0b1320;       /* Biru sangat gelap (Background utama) */
+    --bg-card: #16243b;       /* Biru dongker medium */
+    --text-main: #e2e8f0;     /* Putih pudar (Teks utama) */
+    --text-muted: #94a3b8;    /* Abu-abu kebiruan (Teks deskripsi) */
+    --accent-red: #c1121f;    /* Merah elegan untuk aksen dan tombol */
+    --accent-hover: #780000;  /* Merah lebih gelap saat tombol disorot */
 }
 
 /* Reset Dasar */
@@ -29,25 +29,24 @@ body {
     width: 100%;
 }
 
-/* --- BACKGROUND ORBS (EFEK BLUR HALUS & ELEGAN) --- */
-/* Menciptakan dua lingkaran cahaya di belakang layar */
+/* --- BACKGROUND ORBS (EFEK BLUR BERSINAR) --- */
 body::before,
 body::after {
     content: "";
     position: fixed; 
     border-radius: 50%;
-    filter: blur(180px); /* Blur diperbesar agar menyebar dengan halus */
+    filter: blur(120px); 
     z-index: -1; 
     pointer-events: none; 
-    opacity: 0.15; /* Transparansi diturunkan drastis agar elegan, tidak menutupi konten */
+    opacity: 0.45; 
 }
 
 /* Orb Kiri Atas (Warna Biru Terang) */
 body::before {
     width: 600px;
     height: 600px;
-    top: -100px;
-    left: -100px;
+    top: -200px;
+    left: -200px;
     background-color: #2563eb; 
 }
 
@@ -55,8 +54,8 @@ body::before {
 body::after {
     width: 700px;
     height: 700px;
-    bottom: -150px;
-    right: -150px;
+    bottom: -250px;
+    right: -200px;
     background-color: var(--accent-red); 
 }
 
@@ -217,6 +216,28 @@ nav ul li a:hover {
     line-height: 1.6;
 }
 
+/* --- GAYA BINGKAI PERANGKAT FIGMA (BARU) --- */
+.project-image.figma-device-mockup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: var(--bg-card); /* Latar belakang semi-transparan yang sama */
+    position: relative;
+}
+
+.figma-device-mockup img {
+    /* Membuat bingkai perangkat kustom sederhana di CSS */
+    width: 250px; /* Ukuran frame perangkat kustom */
+    height: 520px; /* Ketinggian untuk menampung gambar 9:16 */
+    border: 8px solid #2d3748; /* Bezel fisik gelap */
+    border-radius: 20px; /* Tepi melengkung */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3); /* Bayangan halus */
+    overflow: hidden; /* Memastikan gambar tetap di dalam frame */
+    display: block; /* Menghapus spasi bawah */
+    margin: auto; /* Untuk memastikan pusatkan di desktop */
+}
+
 /* --- TOMBOL UMUM --- */
 .btn {
     display: inline-block;
@@ -304,6 +325,12 @@ footer {
     }
     .project-info {
         padding: 25px;
+    }
+
+    /* Penyesuaian khusus untuk bingkai perangkat di HP */
+    .project-image.figma-device-mockup img {
+        width: 180px; /* Perkecil bingkai perangkat di HP */
+        height: 380px; 
     }
 
     .contact-links {
