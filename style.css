@@ -241,12 +241,13 @@ nav ul li a:hover {
     transform: scale(1.05); 
 }
 
+/* --- PERBAIKAN PADDING DAN ALIGNMENT KONTEN KARTU --- */
 .project-info {
     flex: 1;
     padding: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Diubah agar selalu sejajar atas */
 }
 
 .project-info h3 {
@@ -267,6 +268,24 @@ nav ul li a:hover {
 
 .project-info li {
     margin-bottom: 8px;
+}
+
+/* Mendorong tombol "Kunjungi Website" selalu di bawah */
+.project-info .btn {
+    margin-top: auto; 
+}
+
+/* --- PERBAIKAN BAGIAN TENTANG SAYA --- */
+#about .project-info {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+}
+
+#about .project-info p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    line-height: 1.8;
 }
 
 /* Bingkai Perangkat Figma */
@@ -464,4 +483,39 @@ footer {
         text-align: center; 
         align-self: stretch; 
     }
+}
+
+/* =========================================
+   12. KOTAK STATISTIK (PERBAIKAN CSS YANG HILANG)
+========================================= */
+.stats-section {
+    max-width: 1200px;
+    margin: -40px auto 50px auto; /* Menarik kotak sedikit ke atas agar menyatu dengan hero */
+    padding: 0 5%;
+    position: relative;
+    z-index: 10;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    background-color: var(--bg-card);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.stat-box h3 {
+    font-size: 2.5rem;
+    color: var(--accent-red);
+    margin-bottom: 10px;
+}
+
+.stat-box p {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 1rem;
 }
