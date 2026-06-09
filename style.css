@@ -521,36 +521,41 @@ footer {
 }
 
 /* =========================================
-   13. GALERI PROJEK SLIDER (CSS ONLY)
+   13. GALERI PROJEK SLIDER (DIKUNCI ABSOLUT)
 ========================================= */
 .project-image.gallery-wrapper {
     position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    overflow: hidden; /* Mencegah gambar tumpah ke luar kotak */
 }
 
 .image-slider {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory; /* Membuat gambar 'menempel' presisi saat digeser */
-    scroll-behavior: smooth;
-    height: 100%;
+    position: absolute; /* Kunci posisi agar tidak memanjangkan kotak ke bawah */
+    top: 0;
+    left: 0;
     width: 100%;
-    -ms-overflow-style: none;  /* Menyembunyikan scrollbar bawaan di IE/Edge */
-    scrollbar-width: none;     /* Menyembunyikan scrollbar bawaan di Firefox */
+    height: 100%;
+    display: flex;
+    flex-direction: row; /* Paksa gambar berbaris ke samping */
+    overflow-x: auto;
+    overflow-y: hidden; /* Matikan paksa scroll ke bawah */
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-/* Menyembunyikan scrollbar bawaan di Chrome, Safari, & Opera */
+/* Menyembunyikan scrollbar bawaan browser */
 .image-slider::-webkit-scrollbar {
     display: none; 
 }
 
 .image-slider img {
-    flex: 0 0 100%; /* Memaksa setiap gambar mengambil lebar penuh 100% dari kontainernya */
+    flex: 0 0 100%; /* Paksa setiap gambar mengambil lebar penuh 100% */
+    width: 100%;
     height: 100%;
     object-fit: cover;
-    scroll-snap-align: center; /* Gambar akan selalu presisi di tengah setelah digeser */
+    object-position: top center; /* Fokuskan potongan gambar ke UI bagian atas */
+    scroll-snap-align: center;
 }
 
 /* Petunjuk visual "Geser Gambar" */
@@ -558,14 +563,15 @@ footer {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    background-color: rgba(11, 19, 32, 0.85); /* Warna biru gelap transparan */
+    background-color: rgba(11, 19, 32, 0.85);
     border: 1px solid var(--accent-red);
     color: var(--text-main);
     padding: 6px 15px;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
-    pointer-events: none; /* Agar tidak menghalangi kursor saat pengguna menggeser gambar */
+    pointer-events: none;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     backdrop-filter: blur(4px);
+    z-index: 10; /* Pastikan tulisan selalu berada di atas gambar */
 }
