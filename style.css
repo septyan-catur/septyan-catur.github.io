@@ -519,3 +519,53 @@ footer {
     font-weight: 600;
     font-size: 1rem;
 }
+
+/* =========================================
+   13. GALERI PROJEK SLIDER (CSS ONLY)
+========================================= */
+.project-image.gallery-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Membuat gambar 'menempel' presisi saat digeser */
+    scroll-behavior: smooth;
+    height: 100%;
+    width: 100%;
+    -ms-overflow-style: none;  /* Menyembunyikan scrollbar bawaan di IE/Edge */
+    scrollbar-width: none;     /* Menyembunyikan scrollbar bawaan di Firefox */
+}
+
+/* Menyembunyikan scrollbar bawaan di Chrome, Safari, & Opera */
+.image-slider::-webkit-scrollbar {
+    display: none; 
+}
+
+.image-slider img {
+    flex: 0 0 100%; /* Memaksa setiap gambar mengambil lebar penuh 100% dari kontainernya */
+    height: 100%;
+    object-fit: cover;
+    scroll-snap-align: center; /* Gambar akan selalu presisi di tengah setelah digeser */
+}
+
+/* Petunjuk visual "Geser Gambar" */
+.scroll-hint {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(11, 19, 32, 0.85); /* Warna biru gelap transparan */
+    border: 1px solid var(--accent-red);
+    color: var(--text-main);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    pointer-events: none; /* Agar tidak menghalangi kursor saat pengguna menggeser gambar */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    backdrop-filter: blur(4px);
+}
